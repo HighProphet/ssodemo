@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        setTimeout(function () {
+            var url = document.querySelector('a').href;
+            window.location.href = url;
+        }, 1500);
+    </script>
+</head>
+<body>
+<h2>operation succeeded,3s to jumping to <a
+        th:href="@{${redirectPath}} "
+
+>here</a>
+</h2>
+</body>
+</html>

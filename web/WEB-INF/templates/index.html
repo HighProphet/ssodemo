@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="center">
+    <div th:replace="fragments/header :: brand_title"></div>
+    <br>
+    <div th:switch="${#session.getAttribute('user.login')}">
+        <div th:case="true">You are Authenticated as <br>
+            <h2 th:text="${user.name}"></h2>
+            &nbsp;<a th:href="@{/sso/signoff(redirectAddress=${#request.getPathInfo()})}" th:text="'Sign Off'"></a>
+        </div>
+        <span th:case="false">
+            Click <a th:href="@{/user/signon(redirectAddress=${#request.getPathInfo()})}" th:text="'here'"></a> to Sign on
+        </span>
+    </div>
+    <br>
+    <h4>
+        <span>Please download the SSO API pack
+            <a th:href="@{/resources/shareutils.jar}" th:text="shareutils.jar"></a>
+        </span>
+    </h4>
+</div>
+</body>
+</html>

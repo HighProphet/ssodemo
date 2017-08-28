@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" th:href="${#httpServletRequest.getServletContext().getAttribute('bootstrap.css.href')}"
+          crossorigin="anonymous">
+    <script th:src="${#httpServletRequest.getServletContext().getAttribute('bootstrap.js.href')}"
+            crossorigin="anonymous"></script>
+    <!--<link rel="stylesheet" href="/resources/css/bootstrap.min.css">-->
+    <!--<script src="/resources/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <div th:replace="fragments/header :: brand_title"></div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <form th:object="${user}" method="post">
+                <th:block th:replace="signon :: user_info"/>
+                <button class="btn btn-success" type="submit" th:text="Register"></button>
+                <button class="btn btn-default" type="button" th:text="I have Account"></button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
